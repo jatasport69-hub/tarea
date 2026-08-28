@@ -1,0 +1,369 @@
+/* =========================================================
+   RECURSOS EDUCATIVOS
+   ========================================================= */
+
+/*
+   Fondo de la sección.
+
+   Usamos un color ligeramente diferente para
+   separar visualmente los recursos del resto
+   de la página.
+*/
+
+.resources {
+    background: var(--light);
+}
+
+
+/*
+   Contenedor de todos los botones.
+
+   CSS Grid nos permite crear varias columnas.
+*/
+
+.resources-buttons {
+    display: grid;
+
+    /*
+       Creamos 3 columnas iguales.
+    */
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+}
+
+
+/* =========================================================
+   BOTÓN DE RECURSO
+   ========================================================= */
+
+/*
+   Cada enlace <a> funciona como un botón.
+
+   Es importante recordar que no necesitamos
+   utilizar <button> para enviar al usuario
+   a otra página.
+
+   Un enlace <a href=""> es lo correcto para
+   navegar hacia otra página.
+*/
+
+.resource-btn {
+
+    /*
+       Flexbox permite organizar:
+
+       ICONO | TEXTO | FLECHA
+    */
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    /*
+       Espacio interno del botón.
+    */
+
+    padding: 18px;
+
+    /*
+       Fondo blanco.
+    */
+
+    background: var(--white);
+
+    /*
+       Borde.
+    */
+
+    border: 1px solid var(--border);
+
+    /*
+       Esquinas redondeadas.
+    */
+
+    border-radius: 14px;
+
+    /*
+       Color general.
+    */
+
+    color: var(--dark);
+
+    /*
+       Hace que los cambios sean suaves.
+    */
+
+    transition: var(--transition);
+
+    /*
+       Evita que el texto afecte demasiado
+       al tamaño del botón.
+    */
+
+    min-width: 0;
+}
+
+
+/* =========================================================
+   EFECTO HOVER
+   ========================================================= */
+
+/*
+   :hover se activa cuando colocamos
+   el mouse sobre el botón.
+*/
+
+.resource-btn:hover {
+
+    /*
+       El botón sube ligeramente.
+    */
+
+    transform: translateY(-5px);
+
+    /*
+       Aparece una sombra.
+    */
+
+    box-shadow: var(--shadow);
+
+    /*
+       Cambiamos el borde.
+    */
+
+    border-color: var(--primary);
+}
+
+
+/* =========================================================
+   ICONO DEL RECURSO
+   ========================================================= */
+
+.resource-icon {
+
+    /*
+       Tamaño del cuadrado.
+    */
+
+    min-width: 52px;
+
+    width: 52px;
+
+    height: 52px;
+
+    /*
+       Esquinas redondeadas.
+    */
+
+    border-radius: 12px;
+
+    /*
+       Fondo azul muy claro.
+    */
+
+    background: #eaf0ff;
+
+    /*
+       Icono azul.
+    */
+
+    color: var(--primary);
+
+    /*
+       Centramos el icono.
+    */
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    /*
+       Tamaño del icono.
+    */
+
+    font-size: 1.3rem;
+}
+
+
+/* =========================================================
+   TEXTO DEL BOTÓN
+   ========================================================= */
+
+/*
+   Este contenedor contiene:
+
+   <strong>
+   <small>
+*/
+
+.resource-text {
+
+    /*
+       Flexbox vertical.
+    */
+
+    display: flex;
+
+    flex-direction: column;
+
+    /*
+       El texto ocupa el espacio disponible.
+    */
+
+    flex: 1;
+
+    /*
+       Evita problemas de desbordamiento.
+    */
+
+    min-width: 0;
+}
+
+
+/*
+   Nombre de la plataforma.
+*/
+
+.resource-text strong {
+
+    color: var(--dark);
+
+    font-size: 0.95rem;
+
+    /*
+       Evitamos que el texto se salga.
+    */
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+}
+
+
+/*
+   Descripción del recurso.
+*/
+
+.resource-text small {
+
+    color: var(--text);
+
+    font-size: 0.75rem;
+
+    margin-top: 3px;
+}
+
+
+/* =========================================================
+   FLECHA DEL BOTÓN
+   ========================================================= */
+
+.resource-arrow {
+
+    /*
+       Color de la flecha.
+    */
+
+    color: var(--primary);
+
+    /*
+       Tamaño.
+    */
+
+    font-size: 0.9rem;
+
+    /*
+       Animación.
+    */
+
+    transition: var(--transition);
+}
+
+
+/*
+   Cuando pasamos el mouse sobre el botón,
+   movemos ligeramente la flecha hacia la derecha.
+*/
+
+.resource-btn:hover .resource-arrow {
+
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
+
+/*
+   Cuando la pantalla es menor de 900px,
+   utilizamos 2 columnas.
+*/
+
+@media (max-width: 900px) {
+
+    .resources-buttons {
+
+        grid-template-columns: repeat(2, 1fr);
+
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE - MÓVIL
+   ========================================================= */
+
+/*
+   En teléfonos utilizamos una sola columna.
+
+   Así cada botón ocupa todo el ancho disponible.
+*/
+
+@media (max-width: 600px) {
+
+    .resources-buttons {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /*
+       Reducimos ligeramente el tamaño
+       de los botones.
+    */
+
+    .resource-btn {
+
+        padding: 15px;
+
+    }
+
+
+    /*
+       Reducimos el icono.
+    */
+
+    .resource-icon {
+
+        min-width: 45px;
+
+        width: 45px;
+
+        height: 45px;
+
+        font-size: 1.1rem;
+
+    }
+
+}
